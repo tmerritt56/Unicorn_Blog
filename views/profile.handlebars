@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="columns">
+        <h2> Welcome, {{name}}! You are a Unicorn!</h2>
+    </div>
+</div>
+
+<div>
+    <div>
+        <h3>Make a new post?</h3>
+        <form>
+            <div>
+                <label>Post Title:</label>
+                <input/>
+            </div>
+            <div>
+                <label>Post Content:</label>
+                <textarea></textarea>
+            </div>
+            <div>
+                <button type="submit" class="button is-primary">Post It</button>
+            </div>
+        </form>
+    </div>
+
+    {{#if post.length}}
+    <div> 
+        <h3>Your Posts:</h3>
+        {{#each post as |post|}}
+        <div class="row">
+            <div class="column"
+            <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+        </div>
+        <div class="column">
+            <button class="button is-danger" data-id="{{post.id}}">Git Rid of this post?</button>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
+
+<script src="./js/profile.js"></script>
