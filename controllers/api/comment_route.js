@@ -3,15 +3,9 @@ const { Comment,User,Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req,res) => {
-    User.findAll({
-        attributes: { exlude: ['password'] },
-    })
-    .then((dbUserD) => res.json(dbUserD))
-    .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+    Comment.FindAll({})
+    .then()
+})
 
 router.get('/:id', (req,res) => {
     User.findOne({
@@ -55,7 +49,7 @@ router.post('/', (req,res) => {
     }).then ((dbUserD) => {
         req.session.save(() => {
             req.session.user_id = dbUserD.id;
-            
+
         })
     })
 })
